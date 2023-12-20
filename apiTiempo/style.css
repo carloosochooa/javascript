@@ -1,0 +1,66 @@
+body{
+    display: flex;
+    width: 100vw;
+    gap: 15px;
+    height: 95vh;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: rgb(16, 62, 103);
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    text-shadow: 2px 2px 2px black;
+}
+.contenedor{
+    width: 500px;
+    height: 100px;
+    padding: 30px;
+    color: rgb(229, 229, 229);
+    background-color: rgb(214, 198, 177);
+    border-radius: 10px 10px;
+}
+.contenedor>h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-bottom: 2px solid rgb(219, 218, 212);
+    width: 415px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.resultado{
+    width: 66vw;
+    padding: 10px;
+    background-color: rgb(214, 198, 177);
+    border-radius: 10px 10px;
+    color: rgb(229, 229, 229);
+}
+.encabezado{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: bolder;
+    font-size: x-large;
+}
+.grados{
+    text-align: center;
+    font-size: 60px;
+    font-weight: bolder;
+    margin: 0;
+}
+
+.contTemperaturas{
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+    font-size: large;
+}
+.tempPorHoras{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    gap: 5px;
+}
+.tempHora{
+    display: flex;
+    gap: 5px;
+}
