@@ -1,0 +1,231 @@
+@font-face {
+    font-family: 'PokemonSolid';
+    src: url("fonts/pokemonsolid.ttf") format('truetype'),
+         url("fonts/pokemonsolid.woff") format('woff');
+        font-weight: normal;
+        font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cagliostro';
+    src: url("fonts/Cagliostro-Regular.ttf") format('truetype');
+        font-weight: normal;
+        font-style: normal;
+}
+
+
+body{
+    background-image: url("img/pokedex.png");
+    background-repeat: no-repeat;
+    overflow-y: hidden;
+
+}
+
+#pokedex{
+    position: fixed;
+    top: 0;
+    font-family: 'PokemonSolid';
+    right: 150px;
+    font-size: 50px;
+    color: white;
+}
+
+
+.botones{
+    position: fixed;
+    width: 530px;
+    height: 100px;
+    top: 820px;
+    left: 66%;
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+}
+.avanzar, .retroceder{
+    background-color: #ba2b37;
+    width: 130px;
+    border-radius: 20px 20px;
+    background-image: url("img/flecha.png");
+    box-shadow: 2px 2px 2px black;
+}
+.retroceder{
+    transform: scaleX(-1);
+}
+
+#contenedor{
+    position: fixed;
+    font-family: 'PokemonSolid',sans-serif;
+    color: white;
+    width: 800px;
+}
+
+
+#contenedor{
+    top: -2px;
+    left: 300px;
+    height: 100px;
+    display: flex;
+    font-size: 50px;
+    justify-content: space-between;
+}
+
+.imagen{
+    position: fixed;
+    width: 700px;
+    height: 700px;
+    top: 100px;
+    left: 30px;
+}
+#habilidades{
+    position: fixed;
+    width: 500px;
+    height: 200px;
+    color: black;
+    right: 135px;
+    font-size: x-large;
+    font-weight: bold;
+    font-family: 'Cagliostro';
+}
+.habilidad1{
+    top: 220px;
+}
+
+.habilidad2{
+    top: 315px;
+}
+#tipo, #tipoValor{
+    position: fixed;
+    color: black;
+    right: 270px;
+    font-size: x-large;
+    font-family: 'Cagliostro';
+}
+.hab1,.hab2{
+    position: fixed;
+    right: 300px;
+    font-family: 'Cagliostro';
+    font-size: x-large;
+}
+
+.hab1{
+    top: 195px;
+    color: black;
+
+}
+.hab2{
+    top: 290px;
+    color: black;
+}
+#tipo{
+    position: fixed;
+    right: 560px;
+    top: 425px;
+}
+#tipoValor{
+    top: 425px;
+    right: 300px;
+
+}
+#contAlturas{
+    position: fixed;
+    width: 300px;
+    top: 520px;
+    right: 300px;
+    justify-content: space-between;
+    display: flex;
+    font-family: 'Cagliostro';
+    font-size: x-large;
+}
+#contPesos{
+    position: fixed;
+    width: 300px;
+    top: 620px;
+    right: 300px;
+    justify-content: space-between;
+    display: flex;
+    font-family: 'Cagliostro';
+    font-size: x-large;
+}
+
+#expBase{
+    position: fixed;
+    width: 300px;
+    top: 720px;
+    right: 300px;
+    justify-content: space-between;
+    display: flex;
+    font-family: 'Cagliostro';
+    font-size: x-large;
+}
+
+#estadisticas{
+    position: fixed;
+    width: 600px;
+    height: 100px;
+    background-color: #ba2b37;
+    box-shadow: 2px 2px 2px black;
+    border-radius: 20px 20px;
+    bottom: 50px;
+    left: 50px;
+    font-family: 'Cagliostro';
+    font-size: x-large;
+
+}
+#corazon{
+    position: absolute;
+    top: 25px;
+    left: 20px;
+}
+
+#vidaVal{
+    position: absolute;
+    top: 10px;
+    left: 100px;
+}
+
+
+#ataqueVal{
+    position: absolute;
+    top: 10px;
+    left: 230px;
+}
+
+#espada{
+    position: absolute;
+    top: 25px;
+    left: 160px;
+}
+#espadaVal{
+    position: absolute;
+
+}
+
+#escudo{
+    position: absolute;
+    top: 20px;
+    left: 300px;
+}
+
+#escudoVal{
+    position: absolute;
+    top: 10px;
+    left: 360px;
+}
+
+#velocidad{
+    position: absolute;
+    right: 0;
+    width: 100px;
+}
+
+#velocidadVal{
+    position: absolute;
+    height: 50px;
+    top: 10px;
+}
+
+#velocidad img{
+    position: absolute;
+    top: -20px;
+    right: 75px;
+}

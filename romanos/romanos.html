@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romanos</title>
+    <link rel="stylesheet" href="./romanos.css">
+    <link rel="shortcut icon" href="./imagenes/iconoRomanos.png" type="image/x-icon">
+    <script>
+        const pasarRomanos = (anyo) => {
+            const diccionario = [
+                { valor: 1000, simbolo: 'M' },
+                { valor: 900, simbolo: 'CM' },
+                { valor: 500, simbolo: 'D' },
+                { valor: 400, simbolo: 'CD' },
+                { valor: 100, simbolo: 'C' },
+                { valor: 90, simbolo: 'XC' },
+                { valor: 50, simbolo: 'L' },
+                { valor: 40, simbolo: 'XL' },
+                { valor: 10, simbolo: 'X' },
+                { valor: 9, simbolo: 'IX' },
+                { valor: 5, simbolo: 'V' },
+                { valor: 4, simbolo: 'IV' },
+                { valor: 1, simbolo: 'I' }
+            ];
+            let romano = "";
+            for (const i of diccionario) {
+                while (anyo >= i.valor) {
+                    romano += i.simbolo;
+                    anyo -= i.valor;
+                }
+            }
+            return romano;
+        }
+        const pasarDecimales = (roman) => {
+            const diccionario = [
+                { valor: 1000, simbolo: 'M' },
+                { valor: 900, simbolo: 'CM' },
+                { valor: 500, simbolo: 'D' },
+                { valor: 400, simbolo: 'CD' },
+                { valor: 100, simbolo: 'C' },
+                { valor: 90, simbolo: 'XC' },
+                { valor: 50, simbolo: 'L' },
+                { valor: 40, simbolo: 'XL' },
+                { valor: 10, simbolo: 'X' },
+                { valor: 9, simbolo: 'IX' },
+                { valor: 5, simbolo: 'V' },
+                { valor: 4, simbolo: 'IV' },
+                { valor: 1, simbolo: 'I' }
+            ];
+            let decimal = 0;
+            for (const i of diccionario) {
+                return "a";
+            }
+        }
+        function devolver() {
+            const inputElement = document.getElementById("resultado");
+            const resultElement = document.getElementById("valorMostrado");
+
+            const valor = inputElement.value;
+
+            if (!isNaN(valor) && valor !== "") {
+                const valorEnRomanos = pasarRomanos(parseInt(valor));
+
+                resultElement.innerHTML = valor + ' en números romanos es: ' + valorEnRomanos;
+                resultElement.style.display = "block";
+            } else {
+                resultElement.innerHTML = 'Por favor, ingrese un número válido.';
+                resultElement.style.display = "block";
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <div class="izquierda">
+                <img src="./imagenes/iconoCoral.png" alt="Icono de la página">
+            </div>
+            <div class="derecha">
+                <h1>Conversor de números romanos</h1>
+            </div>
+        </header>
+        <main>
+            <div class="arriba">
+                <h2 class="frase">Pasar número natural al romano</h4>
+            </div>
+            <div class="centro">
+                <label for="resultado">Número decimal</label>
+                <input type="text" id="resultado" size="50">
+            </div>
+            <div class="abajo">
+                <button onclick="devolver()">Enviar</button>
+            </div>
+            <div class="parrafo">
+                <p id="valorMostrado"></p>
+            </div>
+
+
+        </main>
+        <footer>
+            <p class="frase">Cookies Consent</p>
+            <p class="frase">Aviso legal</p>
+            <p class="frase">Política de Privacidad</p>
+        </footer>
+    </div>
+</body>
+
+</html>
