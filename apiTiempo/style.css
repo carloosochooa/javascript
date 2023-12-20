@@ -8,7 +8,6 @@ body{
     background-color: rgb(16, 62, 103);
     background-repeat: no-repeat;
     overflow-x: hidden;
-    text-shadow: 2px 2px 2px black;
 }
 .contenedor{
     width: 500px;
@@ -17,6 +16,7 @@ body{
     color: rgb(229, 229, 229);
     background-color: rgb(214, 198, 177);
     border-radius: 10px 10px;
+    text-shadow: 2px 2px 2px black;
 }
 .contenedor>h1{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -27,7 +27,7 @@ body{
 }
 
 .resultado{
-    width: 66vw;
+    width: 50%;
     padding: 10px;
     background-color: rgb(214, 198, 177);
     border-radius: 10px 10px;
@@ -40,12 +40,14 @@ body{
     align-items: center;
     font-weight: bolder;
     font-size: x-large;
+    text-shadow: 2px 2px 2px black;
 }
 .grados{
     text-align: center;
     font-size: 60px;
     font-weight: bolder;
     margin: 0;
+    text-shadow: 2px 2px 2px black;
 }
 
 .contTemperaturas{
@@ -53,14 +55,49 @@ body{
     justify-content: center;
     gap: 7px;
     font-size: large;
+    border-bottom: 2px solid black;
+    text-shadow: 2px 2px 2px black;
 }
 .tempPorHoras{
     display: flex;
     width: 100%;
     justify-content: space-around;
     gap: 5px;
+    text-shadow: 2px 2px 2px black;
 }
-.tempHora{
+.contHoratemp{
     display: flex;
-    gap: 5px;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: stretch;
+    text-shadow: 2px 2px 2px black;
+}
+.horaSecuencia{
+    font-weight: bolder;
+    text-shadow: 2px 2px 2px black;
+}
+.maximas_minimas_semanal{
+    border-top: 2px solid black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.maximas_minimas_semanal>p{
+    text-shadow: 2px 2px 2px black;
+}
+.contMaximaMinima{
+    border-top: 2px solid rgb(63, 63, 63);
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: bolder;
+
+}
+.maxDiaria{
+    color: rgb(195, 75, 23);
+}
+.minDiaria{
+    color: rgb(89, 89, 234);
 }

@@ -23,9 +23,9 @@ select.appendChild(opcionInicial);
 
 fetchURL(url, {"method": "GET"})
 
-.then(function(resolve){
-    const ciudadesEspaña = resolve.filter(function(array){
-        return array[5] === "ES";
+.then(resolve =>{
+    const ciudadesEspaña = resolve.filter(elemento =>{
+        return elemento[5] === "ES";
     });
 
     ciudadesEspaña.sort(function(a, b){
@@ -78,7 +78,7 @@ fetchURL(url, {"method": "GET"})
         fetchURL(`https://api.open-meteo.com/v1/forecast?latitude=${latitud}&longitude=${longitud}&current=temperature_2m&hourly=temperature_2m&daily=temperature_2m_max,temperature_2m_min`,{"method":"GET"})
         .then(function(resolve){
 
-            const  temperaturaActual = document.createElement("p");
+            const temperaturaActual = document.createElement("p");
             temperaturaActual.className = "grados";
             temperaturaActual.innerHTML = Math.round(resolve.current.temperature_2m) + "°C";
 
@@ -89,45 +89,33 @@ fetchURL(url, {"method": "GET"})
             maxima.className = "maxima";
             let minima = document.createElement("p");
             minima.className = "minima";
-
-            resolve.daily.temperature_2m_max.forEach(temperatura => {
-                let max = 0;
-                if (temperatura > max){
-                    max = temperatura;
-                }
-                maxima.innerHTML = "<b>Máxima:</b> " + max + "°C |";
-            });
-
-            resolve.daily.temperature_2m_min.forEach(temperatura => {
-                let min = 100;
-                if(temperatura < min){
-                    min = temperatura;
-                }
-                minima.innerHTML = "<b>Mínima:</b> " + min + "°C";
-            })
-
-
+            maxima.innerHTML = "<b>Máxima:</b> " + resolve.daily.temperature_2m_max[0] + "°C |";
+            minima.innerHTML = "<b>Mínima:</b> " + resolve.daily.temperature_2m_min[0] + "°C";
 
             //TODO resumen semanal com maxiam minimas y precipitaciones, resumen de horas con lo mismo y graficas, a parte de poner 
-            // que se pueda seguir eligiendo la ciudad
             const temperaturaPorHoras = document.createElement("div");
             temperaturaPorHoras.className = "tempPorHoras";
             const horasMostrar = 10;
-            let temperaturaHora = "";
-            temperaturaHora.className = "tempHora";
-            let horaSecuencia = "horaSecuencia";
+
+            let valorSecuencia = "";
             resolve.hourly.time.slice(0, horasMostrar).forEach((horaa, index) => {
+                let temperaturaHora = document.createElement("p");
+                temperaturaHora.className = "temperaturaHora";
+                let horaSecuencia = document.createElement("p");
+                horaSecuencia.className = "horaSecuencia";
                 //Quiero mostrar la cantidad de 10 temperaturas
-                temperaturaHora = Math.round(resolve.hourly.temperature_2m[index]);
-                horaSecuencia = obtenerHoraISO(horaa);
-
-                horaSecuencia = (horaSecuencia[0] === "0") ? horaSecuencia.slice(1) : horaSecuencia;
-
-                const tempHora = document.createElement("div");
-                tempHora.className = "tempHora";
-                tempHora.append(horaSecuencia,temperaturaHora);
-                temperaturaPorHoras.append(tempHora);
+                temperaturaHora.innerHTML = Math.round(resolve.hourly.temperature_2m[index]) + "°C";
+                
+                valorSecuencia = obtenerHoraISO(horaa);
+                if(valorSecuencia[0] == "0"){
+                    horaSecuencia.innerHTML = valorSecuencia.slice(1);
+                }
+                const contHoraTemp = document.createElement("div");
+                contHoraTemp.className = "contHoratemp";
+                contHoraTemp.append(horaSecuencia,temperaturaHora);
+                temperaturaPorHoras.append(contHoraTemp);
             });
+            
 
 
             const contTemperaturas = document.createElement("div");
@@ -135,7 +123,34 @@ fetchURL(url, {"method": "GET"})
             contTemperaturas.append(maxima,minima); 
 
             encabezado.append(mensaje,fecha);
-            resultado.append(encabezado, temperaturaActual,contTemperaturas, temperaturaPorHoras);
+
+            const maximas_minimas_semanal = document.createElement("div");
+            maximas_minimas_semanal.className = "maximas_minimas_semanal";
+            const prevision = document.createElement("p");
+            prevision.innerHTML = "Prevision (7 días)";
+            maximas_minimas_semanal.appendChild(prevision);
+
+            resolve.daily.time.forEach((temp,index) =>{
+                const maxDiaria = document.createElement("p"); 
+                maxDiaria.className = "maxDiaria";
+                maxDiaria.innerHTML = "Máxima: " + resolve.daily.temperature_2m_max[index] + "°C";
+                const minDiaria = document.createElement("p");
+                minDiaria.className = "minDiaria";
+                minDiaria.innerHTML = "Mínima: " + resolve.daily.temperature_2m_min[index] + "°C";
+                const diaSemanal = document.createElement("p");
+                diaSemanal.innerHTML = temp.slice(8,10);
+                diaSemanal.style.textShadow = "2px 2px 2px black";
+
+                const contMaximaMinima = document.createElement("div");
+                contMaximaMinima.className = "contMaximaMinima";
+
+                contMaximaMinima.append(diaSemanal, minDiaria,maxDiaria);
+                
+                maximas_minimas_semanal.append(contMaximaMinima);
+
+            });
+
+            resultado.append(encabezado, temperaturaActual,contTemperaturas, temperaturaPorHoras,maximas_minimas_semanal);
             document.body.append(resultado);
             if(horaNueva>19){
                 document.body.style.backgroundImage = "url(img/nocturno.jpg)";
