@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador de tareas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1>Administrador de Tareas</h1>
+        </div>
+        <div class="formulario-container text-center">
+            <form id="formulario">
+                <div class="form-group">
+                    <label for="nombre">Nombre de la tarea</label>
+                    <input type="text" class="form-control" id="nombre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="estimado">Tiempo estimado de trabajo(minutos)</label>
+                    <input type="number" class="form-control" id="estimado" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="finalizacion">Fecha máxima de finalización (deadline)</label>
+                    <input type="date" class="form-control" id="finalizacion">
+                </div>
+
+                <div class="form-group">
+                    <label for="alta">Fecha de alta de la tarea</label>
+                    <input type="date" class="form-control" id="alta">
+                </div>
+
+                <div class="form-group">
+                    <label for="estado">Estado</label>
+                    <select class="form-control" id="select">
+                        <option value="proceso">En proceso</option>
+                        <option value="pendiente">Pendiente</option>
+                        <option value="finalizada">Finalizada</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-success">Añadir tarea</button>
+            </form>
+            <div class="ordenacion">
+                <div class="izquierda">
+                    <p>Ordenar descendente</p>
+                    <a onclick="estimadoDESC()" id="estimadoDESC" class="btn btn-success">Tiempo estimado</a><br>
+                    <a onclick="finalizacionDESC()" id="finalizacionDESC" class="btn btn-success">Fecha máx. finalización</a>
+                </div>
+                <div class="derecha">
+                    <p>Ordenar ascendente</p>
+                    <a onclick="estimadoASC()" id="estimadoASC" class="btn btn-success">Tiempo estimado</a><br>
+                    <a onclick="finalizacionASC()" id="finalizacionASC" class="btn btn-success">Fecha máx. finalizacion</a>
+                </div>
+            </div>
+        </div>
+        <table class="table">
+            <thead class="cabecera">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Tiempo estimado(DESC)</a></th>
+                    <th>Fecha máx. finalización(ASC)</a></th>
+                    <th>Fecha de alta</th>
+                    <th>Estado</th>
+                    <th>Modificar</th>
+                    <th>Borrar</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
