@@ -2,6 +2,25 @@ async function fetchURL(url,data = {}){
     return await fetch(url,data).then(response => response.json());
 }
 
+function mostrarAutocompletar(options){
+    lista.innerHTML = "";
+    options.forEach(option =>{
+        const listItem = document.createElement("li");
+        listItem.textContent = option;
+        listItem.addEventListener("click",function(){
+            input.value = option;
+            lista.innerHTML = "";
+        });
+        lista.appendChild(listItem)
+    });
+}
+
+document.addEventListener("click", function(event){
+    if(event.target !== input && event.target !== lista){
+        lista.innerHTML = "";
+    }
+});
+
 let obtenerHoraISO = (horaISO) => horaISO.slice(11,13);
 let latitud = "";
 let longitud = "";
@@ -16,19 +35,23 @@ const select = document.getElementById("ciudad");
 
 
 
-let opcionInicial = document.createElement("option");
+let input = document.getElementById("autocomplete-input");
+let lista = document.getElementById("autocomplete-list");
+
+
+
 opcionInicial.value = "";
 opcionInicial.innerHTML = "Seleccione una ciudad";
 select.appendChild(opcionInicial);
 
 fetchURL(url, {"method": "GET"})
 
-.then(resolve =>{
+.then(resolve => {
     const ciudadesEspaña = resolve.filter(elemento =>{
         return elemento[5] === "ES";
     });
 
-    ciudadesEspaña.sort(function(a, b){
+    ciudadesEspaña.sort((a,b) => {
         const ciudadA = a[1].toLowerCase();
         const ciudadB = b[1].toLowerCase();
     
@@ -53,6 +76,11 @@ fetchURL(url, {"method": "GET"})
 
     });
 
+    input.addEventListener("input",function(){
+        const inputValor = input.value.toLowerCase();
+        const opcionesFiltrados = ciudadesEspaña.filter(opcion => opcion.toLowerCase().includes(inputValor));
+        mostrarAutocompletar(opcionesFiltrados);
+    });
 
     select.addEventListener("change",function(){
         resultado.innerHTML = "";
@@ -107,9 +135,8 @@ fetchURL(url, {"method": "GET"})
                 temperaturaHora.innerHTML = Math.round(resolve.hourly.temperature_2m[index]) + "°C";
                 
                 valorSecuencia = obtenerHoraISO(horaa);
-                if(valorSecuencia[0] == "0"){
-                    horaSecuencia.innerHTML = valorSecuencia.slice(1);
-                }
+                horaSecuencia.innerHTML = (valorSecuencia[0] == "0") ? valorSecuencia.slice(1) : valorSecuencia;
+
                 const contHoraTemp = document.createElement("div");
                 contHoraTemp.className = "contHoratemp";
                 contHoraTemp.append(horaSecuencia,temperaturaHora);
@@ -130,7 +157,7 @@ fetchURL(url, {"method": "GET"})
             prevision.innerHTML = "Prevision (7 días)";
             maximas_minimas_semanal.appendChild(prevision);
 
-            resolve.daily.time.forEach((temp,index) =>{
+            resolve.daily.time.forEach((temp,index) => {
                 const maxDiaria = document.createElement("p"); 
                 maxDiaria.className = "maxDiaria";
                 maxDiaria.innerHTML = "Máxima: " + resolve.daily.temperature_2m_max[index] + "°C";
@@ -152,11 +179,9 @@ fetchURL(url, {"method": "GET"})
 
             resultado.append(encabezado, temperaturaActual,contTemperaturas, temperaturaPorHoras,maximas_minimas_semanal);
             document.body.append(resultado);
-            if(horaNueva>19){
-                document.body.style.backgroundImage = "url(img/nocturno.jpg)";
-            } else{
-                document.body.style.backgroundImage = "url(img/soleado.jpg)";
-            }
+
+            document.body.style.backgroundImage = (horaNueva>19)? "url(img/nocturno.jpg)": "url(img/soleado.jpg)";
+            
             document.body.style.backgroundSize = "cover";
         });
 
