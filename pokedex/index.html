@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/pokeball.png">
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="style.css">
+    
+
+</head>
+<body>
+    <p id="pokedex">Pokedex</p>
+    <div class="botones">
+        <div class="retroceder" id="retroceder" onclick="anterior()"></div>
+        <div class="avanzar" id="avanzar" onclick ="siguiente()"></div>
+    </div>
+    <div id="contenedor"></div>
+    <div class="habilidad1" id="habilidades">Ability 1</div>
+    <div class="habilidad2" id="habilidades">Ability 2</div>
+    <p id="tipo">Type</p>
+    <div id="estadisticas">
+        <div id="salud">
+            <img src="img/corazon.png" alt="salud" width="50" id="corazon">
+        </div>
+        <div id="ataque">
+            <img src="img/espada.png" alt="ataque" width="50" id="espada">
+        </div>
+        <div id="defensa">
+            <img src="img/escudo.png" alt="defensa" width="50" id="escudo">
+        </div>
+        <div id="velocidad">
+            <img src="img/rayo.png" alt="velocidad" width="150" id="veloc">
+        </div>
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

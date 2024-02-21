@@ -1,0 +1,414 @@
+@font-face {
+  font-family: 'Candy';
+  src: url('font/Candy Beans.otf') format('opentype');
+}
+@font-face{
+  font-family: 'Titulo';
+  src: url('font/Happy School.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Pokemon';
+  src: url('font/pokemonsolid.ttf') format('truetype');
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-image: url('img/fondo.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  backdrop-filter: blur(5px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  user-select: none;
+
+}
+
+.titulo {
+  color: #af1b1b;
+  font-family: 'Pokemon';
+  font-size: xx-large;
+
+  text-align: center;
+}
+
+.card button {
+  color: #af1b1b;
+}
+
+.button {
+  width: 150px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  background-color: #e0e0e0;
+  border-radius: 30px;
+  font-weight: 600;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  transition-duration: .4s;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.116);
+  padding-left: 8px;
+  padding-right: 10px;
+  transition-duration: .5s;
+}
+
+.svgIcon {
+  height: 25px;
+  transition-duration: 1.5s;
+}
+
+.bell path {
+  fill: rgb(19, 19, 19);
+}
+
+.button:hover {
+  background-color: #af1b1b;
+  color: white;
+  transition-duration: .5s;
+}
+
+
+.button:active {
+  transform: scale(0.97);
+  transition-duration: .2s;
+}
+
+.button:hover .svgIcon {
+  transform: rotate(250deg);
+  transition-duration: 1.5s;
+}
+.contPadre{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.card {
+  width: 70%;
+  height: 80%;
+  background: #000000;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 20px;
+  justify-content: space-around;
+  align-items: center;
+  border: 4px solid #af1b1b;
+  color: #af1b1b;
+}
+.card h1,
+.card p,
+.card button,
+.card img{
+  z-index: 1;
+  font-size: 2em;
+  font-family: 'Candy';
+}
+.imagenInicio{
+  width: 20%;
+  animation: rotBGimg 2s linear infinite;
+}
+
+
+.card::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 160%;
+}
+
+@keyframes rotBGimg {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+.card::after {
+  content: '';
+  position: absolute;
+  background: #e0e0e0;
+  z-index: 0;
+  inset: 5px;
+  border-radius: 15px;
+}
+
+.juego {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 2;
+}
+
+.carta {
+  width: calc(25% - 30px);
+  margin: 10px;
+  height: 30%;
+  border-radius: 15px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  background-color: #af1b1b;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+.carta.active{
+  transform: rotateY(180deg);
+
+}
+.carta div{
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  background-color: #af1b1b;
+  
+}
+
+.carta .front{
+  transform: rotateY(180deg);
+}
+
+.front img, .back img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+
+}
+
+.loader{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.665);
+  display: none;
+  position: absolute;
+  z-index: 10;
+  font-family: 'Pokemon';
+}
+
+
+.imagen{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+
+.imagen img{
+  width: 5%;
+  animation: rotarPokeball 1s linear infinite ;
+}
+
+.continuar{
+  width: 40%;
+  height: 60%;
+  background: #000000;
+  position: absolute;
+  left: 30%;
+  top: 20%;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 20px;
+  justify-content: space-around;
+  align-items: center;
+  border: 4px solid #af1b1b;
+  color: #af1b1b;
+  display: none;
+  z-index: 10;
+}
+
+.continuar::before{
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100%;
+  z-index: -1;
+}
+
+.continuar::after{
+  content: '';
+  position: absolute;
+  background: #e0e0e0;
+  z-index: -2;
+  z-index: 0;
+  inset: 5px;
+  border-radius: 15px;
+}
+.estructura{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-evenly;
+  z-index: 11;
+}
+
+.mensajeContinuar{
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.botones{
+  display: flex;
+  justify-content: space-around;
+  font-weight: 600;
+  gap: 40px;
+}
+
+.yes{
+  color: #af1b1b;
+}
+
+.yes:hover{
+  color: #e0e0e0;
+}
+.no{
+  background-color: #af1b1b;
+  color: white;
+}
+.no:hover{
+  background-color: #e0e0e0;
+  color: #af1b1b;
+  transition-duration: .5s;
+}
+
+.ganar{
+  font-family: 'Candy';
+  width: 40%;
+  height: 60%;
+  background: #e0e0e0;
+  position: absolute;
+  left: 30%;
+  top: 20%;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 20px;
+  justify-content: space-around;
+  align-items: center;
+  border: 4px solid #af1b1b;
+  color: #af1b1b;
+  display: none;
+  z-index: 10;
+  box-shadow: 2px 2px 2px #a0a0a0;
+}
+
+@keyframes rotarPokeball {
+  0%{
+    transform: rotate(0deg);
+  }
+  50%{
+    transform: rotate(360deg);
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+}
+
+
+@media screen and (max-width: 400px){
+  .card{
+    width: 100%;
+  }
+  .carta{
+    height: 110px;
+    width: 110px;
+  }
+  .juego{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    width: 100%;
+    height: 100%;
+  }
+  .ganar,.continuar{
+    width: 90%;
+    position: absolute;
+    top: 20%;
+    left: 3%;
+  }
+.continuar{
+  text-align: center;
+}
+.botones{
+  gap: 10px;
+}
+}
+@media screen and (max-width: 600px) and (min-width:350px){
+  .card{
+    width: 100%;
+  }
+  .carta{
+    height: 110px;
+    width: 110px;
+    align-items: center;
+    justify-content: center;
+  }
+  .juego{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    margin-left: 35px;
+  }
+  .ganar,.continuar{
+    width: 90%;
+    position: absolute;
+    top: 20%;
+    left: 3%;
+  }
+.continuar{
+  text-align: center;
+}
+.botones{
+  gap: 10px;
+}
+}
+
+

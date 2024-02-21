@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="jumbotron text-center">
+            <h1>Task Manager</h1>
+        </div>
+        <div class="formulario-container text-center">
+            <form id="formulario">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="">Task name</span>
+                    </div>
+                    <input type="text" class="form-control" id="nombre">
+                </div>
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="">Estimated time (minutes)</span>
+                    </div>
+                    <input type="number" class="form-control" id="estimado" required>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="">Deadline</span>
+                    </div>
+                    <input type="date" class="form-control" id="finalizacion" required>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="">Status</span>
+                    </div>
+                    <select class="form-control" id="select">
+                        <option value="1">In progress</option>
+                        <option value="2">Pending</option>
+                        <option value="3">Ended</option>
+                    </select>
+                </div>
+
+
+                <button type="submit" class="btn btn-success">Add Task</button>
+            </form>
+        </div>
+        <div class="cont-tabla">
+            <table class="table" id="tabla">
+                <thead class="cabecera">
+                    <tr>
+                        <th>Name</th>
+                        <th>Estimated time</a></th>
+                        <th>Deadline</a></th>
+                        <th>Discharge date</th>
+                        <th>Status</th>
+                        <th>Modify</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpo">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="fondo" id="fondo">
+        
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="jumbotron text-center">
+            <h1>Modify Task</h1>
+        </div>
+        <div class="formulario-container text-center">
+            <form id="formulario" >
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="">Task name</span>
+                    </div>
+                    <input type="text" class="form-control" id="modal_nombre">
+                </div>
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="">Estimated time (minutes)</span>
+                    </div>
+                    <input type="number" class="form-control" id="modal_estimado" required>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="">Deadline</span>
+                    </div>
+                    <input type="date" class="form-control" id="modal_finalizacion" required>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="">Status</span>
+                    </div>
+                    <select class="form-control" id="modal_select">
+                        <option value="1">In progress</option>
+                        <option value="2">Pending</option>
+                        <option value="3">Ended</option>
+                    </select>
+                </div>
+                <a class="btn btn-success" id="boton-modificar">Modify Task</a>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

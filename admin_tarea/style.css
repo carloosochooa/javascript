@@ -1,0 +1,108 @@
+
+body{
+    padding-top: 15px;
+}
+
+.nombre{
+    text-align: center;
+}
+
+.jumbotron {
+    background-color: #3498db; 
+    color: white;
+    text-align: center; 
+    height: 50px;
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.formulario-container {
+    margin-top: 20px;
+}
+.input-group{
+    margin-bottom: 20px;
+    text-align: center;
+}
+.input-group-text{
+    width: 330px;
+    text-align: center;
+}
+
+.table thead tr:first-child{
+    background-color: #3498db; 
+    color: white; 
+}
+table{
+    margin: 0;
+    border: 1px solid #ccc;
+}
+
+.añadir-btn {
+    text-align: center; 
+}
+form{
+    margin-bottom: 15px;
+}
+
+.boton-borrar{
+    background-color: red;
+    color: white;
+}
+.boton-modificar{
+    background-color: #3498db;
+    color: white;
+}
+
+.boton-borrar, .boton-modificar{
+    border-radius: 5px 5px;
+    border: none;
+}
+
+.ordenacion{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    padding-bottom: 10px;
+}
+.ordenacion p{
+    font-weight: bold;
+}
+
+.izquierda, .derecha{
+    width: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cont-tabla{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.fondo {
+    display: none;
+    position: fixed;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.856);
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    overflow: hidden;
+    width: 60%;
+    z-index: 2;
+    margin: auto;
+    top: 15%;
+    left: 20%;
+}
