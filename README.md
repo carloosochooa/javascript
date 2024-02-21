@@ -15,19 +15,17 @@
 3. **Proyecto 3:** [tareas]
    - Un administrador de tareas.
 
-4. **Proyecto 4:** [romanos]: (cambiar estilos)
-   -En este proyecto creé una web que convierte los números decimales en números romanos.
 
 ## Acerca de Mí
 
 - **Nombre:** Carlos Ochoa
 - **Estudios:** Estudiante de Diseño de Aplicaciones Web
-- **Intereses:** Desarrollo web, diseño UX/UI, Frontend, Bases de Datos.
+- **Intereses:** Desarrollo web, diseño UX/UI, Front-end, Bases de Datos, Back-end.
 
 ## Contacto
 
 Puedes encontrarme en:
-**LinkedIn**: .
+**LinkedIn**: www.linkedin.com/in/carlos-ochoa-labrador-4869692a2
 **Correo de contacto**: carlosochoala03@gmail.com.
 
 ¡Gracias por visitar mi perfil!
